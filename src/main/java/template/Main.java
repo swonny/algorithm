@@ -9,6 +9,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        final StringTokenizer st2 = new StringTokenizer(br.readLine());
+        final StringTokenizer stringTokenizer = new StringTokenizer(br.readLine());
     }
 }
