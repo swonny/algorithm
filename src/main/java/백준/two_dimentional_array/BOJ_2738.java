@@ -23,16 +23,12 @@ public class BOJ_2738 {
             a2[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         }
 
-        System.out.println(Arrays.deepToString(a1));
-        System.out.println(Arrays.deepToString(a2));
-
         for (int i = 0; i < N; i++) {
             StringBuilder sb = new StringBuilder();
             for (int j = 0; j < M; j++) {
                 sb.append(a1[i][j] + a2[i][j]).append(" ");
-                System.out.println(a1[i][j] + a2[i][j]);
             }
-            System.out.println(String.join(sb));
+            System.out.println(sb);
         }
     }
 }

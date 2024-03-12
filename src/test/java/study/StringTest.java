@@ -31,4 +31,10 @@ public class StringTest {
         // then
         assertThat(actual).isEqualTo(expected);
     }
+
+
+    @Test
+    void test() {
+        assertThat("Aa0aPAf985Bz1EhCz2W3D1gkD6x").isEqualTo("Aa0aPAf985Bz1EhCz2W3D1gkD6x");
+    }
 }
