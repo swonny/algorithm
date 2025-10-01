@@ -3,10 +3,16 @@ package 백준.dfs;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
-public class BOJ_1260 {
+public class BOJ_1260_2 {
 
     static int N;
     static int M;
@@ -47,7 +53,6 @@ public class BOJ_1260 {
 
     public static void dfs(int start) {
         visited[start] = true;
-        System.out.print(start + " ");
 
         for (int next : graph.get(start)) {
             if (!visited[next]) {
@@ -60,11 +65,10 @@ public class BOJ_1260 {
         visited = new boolean[N + 1];
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(from);
-        visited[from] = true;
 
         while (!queue.isEmpty()) {
-            int poll = queue.poll();
-            System.out.print(poll + " ");
+            final Integer poll = queue.poll();
+            visited[poll] = true;
             for (int next : graph.get(poll)) {
                 if (!visited[next]) {
                     queue.offer(next);
