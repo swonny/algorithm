@@ -11,14 +11,14 @@ public class BOJ_10816 {
     public static void main(String[] args) throws IOException {
         final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        int[] cards = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        long[] cards = Arrays.stream(br.readLine().split(" ")).mapToLong(Long::parseLong).toArray();
         int M = Integer.parseInt(br.readLine());
-        int[] keys = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-        System.out.println(Arrays.stream(solution(N, cards, M, keys)).mapToObj(Integer::toString).collect(Collectors.joining(" ")));
+        long[] keys = Arrays.stream(br.readLine().split(" ")).mapToLong(Long::parseLong).toArray();
+        System.out.println(Arrays.stream(solution(N, cards, M, keys)).mapToObj(Long::toString).collect(Collectors.joining(" ")));
     }
 
-    public static int[] solution(int N, int[] cards, int M, int[] keys) {
-        int[] answer = new int[M];
+    public static long[] solution(int N, long[] cards, int M, long[] keys) {
+        long[] answer = new long[M];
 
         Arrays.sort(cards);
         for (int i =0; i < M; i++) {
@@ -28,7 +28,7 @@ public class BOJ_10816 {
         return answer;
     }
 
-    public static int upperBound(int[] cards, long key) {
+    public static long upperBound(long[] cards, long key) {
         int left = 0;
         int right = cards.length;
         int mid;
@@ -45,9 +45,9 @@ public class BOJ_10816 {
         return left;
     }
 
-    public static int lowerBound(int[] cards, long key) {
+    public static long lowerBound(long[] cards, long key) {
         int left = 0;
-        int right = cards.length;
+        int right = cards.length - 1;
         int mid;
 
         while (left < right) {
