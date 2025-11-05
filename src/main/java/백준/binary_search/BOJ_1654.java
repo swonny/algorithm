@@ -35,6 +35,12 @@ public class BOJ_1654 {
             } else {
                 left = mid + 1;
             }
+//
+//            if (count < K) {
+//                right = mid - 1;
+//            } else {
+//                left = mid;
+//            }
         }
 
         return left - 1;
