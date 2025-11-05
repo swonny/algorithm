@@ -12,7 +12,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
-public class BOJ_1260_2 {
+public class BOJ_1260_v2 {
 
     static int N;
     static int M;
