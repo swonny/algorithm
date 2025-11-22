@@ -9,16 +9,16 @@ public class BOJ_1747 {
         var br = new BufferedReader(new InputStreamReader(System.in));
         var n = Integer.parseInt(br.readLine());
 
-        var primes = new int[1_000_001];
-        for (int i = 2; i <= 1_000_000; i++) {
+        var primes = new int[2_000_001];
+        for (int i = 2; i < primes.length; i++) {
             primes[i] = i;
         }
 
-        for (int i = 2; i <= Math.sqrt(1_000_000); i++) {
+        for (int i = 2; i < Math.sqrt(primes.length); i++) {
             if (primes[i] == 0) {
                 continue;
             }
-            for (int j = i + i; j <= 1_000_000; j += i) {
+            for (int j = i + i; j < primes.length; j += i) {
                 primes[j] = 0;
             }
         }
