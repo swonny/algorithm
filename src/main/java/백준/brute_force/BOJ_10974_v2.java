@@ -3,42 +3,36 @@ package 백준.brute_force;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
-public class BOJ_10819 {
+public class BOJ_10974_v2 {
     static int n;
     static boolean[] visited;
     static int[] permutation;
-    static int[] numbers;
-    static int max = 0;
     static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        var br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
-        visited = new boolean[n];
+        visited = new boolean[n + 1];
         permutation = new int[n];
-        numbers = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::valueOf).toArray();
 
-        Arrays.sort(numbers);
         dfs(0);
-        System.out.println(max);
+        System.out.println(sb.toString());
     }
 
     public static void dfs(int depth) {
         if (depth == n) {
-            int tmp = 0;
-            for (int i = 0; i < n - 1; i++) {
-                tmp += Math.abs(permutation[i] - permutation[i + 1]);
+            for (int i = 0; i < n; i++) {
+                sb.append(permutation[i]).append(" ");
             }
-            max = Math.max(max, tmp);
+            sb.append("\n");
             return;
         }
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i <= n; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                permutation[depth] = numbers[i];
+                permutation[depth] = i;
                 dfs(depth + 1);
                 visited[i] = false;
             }
